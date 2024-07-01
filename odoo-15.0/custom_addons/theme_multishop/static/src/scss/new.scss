@@ -1,0 +1,48 @@
+    #products_grid_before {
+        @include media-breakpoint-up(lg) {
+            border-right: 1px solid gray('400');
+        }
+        #wsale_products_categories_collapse {
+            label {
+                &:hover {
+                    color: theme-color('primary');
+                    cursor: pointer;
+                }
+            }
+            .nav-hierarchy {
+                padding-left: map-get($spacers, 2);
+            }
+            i.fa {
+                color: gray('500');
+            }
+        }
+        .o_categories_collapse_title, .o_products_attributes_title {
+            font-size: 0.9rem;
+        }
+        .custom-control.custom-checkbox {
+            .custom-control-input {
+                ~ .custom-control-label:before {
+                    outline: none;
+                    border: 0px;
+                    border: 2px solid gray('400');
+                    border-radius: 0px;
+                    cursor: pointer;
+                }
+                &:checked {
+                    ~ .custom-control-label:before {
+                        background-color: theme-color('primary');
+                        border: 2px solid theme-color('primary');
+                    }
+                }
+            }
+            label:hover {
+                color: theme-color('primary');
+                cursor: pointer;
+            }
+        }
+        .css_attribute_color {
+            height: 32px;
+            width: 32px;
+            margin-bottom: 0.2rem;
+        }
+    }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_blog_root"
+              name="Blog Redirect"
+              web_icon="blog_redirect,static/description/icon.png"
+              sequence="0"/>
+
+    <menuitem id="menu_blog_custom"
+              name="Blog"
+              parent="menu_blog_root"
+              sequence="0"/>
+<!--    <menuitem id="menu_blog_custom2"-->
+<!--              name="Blog2"-->
+<!--              parent="menu_blog_root"-->
+<!--              sequence="1"/>-->
+
+    <menuitem id="menu_blog_page"
+              name="Blog Page"
+              action="action_blog_redirect"
+              parent="menu_blog_custom"
+              sequence="99"/>
+
+</odoo>

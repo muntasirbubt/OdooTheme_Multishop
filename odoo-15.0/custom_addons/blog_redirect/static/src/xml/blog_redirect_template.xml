@@ -1,0 +1,11 @@
+<templates>
+    <t t-name="BlogRedirect">
+        <div>
+            <form t-model="widget" t-view-type="form">
+                <t t-call="web.view_form" t-lang="widget" t-view-ids="[widget.view_id]" t-field-options="{&quot;mode&quot;: &quot;readonly&quot;}" t-model="widget">
+                    <t t-set="action_options" t-value="{'additional_context': {'active_ids': widget.context.active_ids}}"/>
+                </t>
+            </form>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--  form view -->
+    <record id="carousel_view_form_view" model="ir.ui.view">
+        <field name="name">carousel.view.form.view</field>
+        <field name="model">carousel.view</field>
+        <field name="arch" type="xml">
+            <form string="Banner">
+                <sheet>
+                    <field name="name" string="Name"/>
+
+                    <group>
+                        <field name="carousel_categories"/>
+                        <field name="description1"/>
+                        <field name="image1" widget="image"/>
+                    </group>
+                    <group>
+                        <field name="description2"/>
+                        <field name="image2" widget="image"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- list or tree view -->
+    <record id="carousel_view_tree_view" model="ir.ui.view">
+        <field name="name">carousel.view.tree.view</field>
+        <field name="model">carousel.view</field>
+        <field name="arch" type="xml">
+            <tree string="Banner">
+                <field name="name"/>
+                <field name="carousel_categories"/>
+                <field name="description1"/>
+                <field name="image1"/>
+                <field name="description2"/>
+                <field name="image2"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Cities Action for city submenu -->
+    <record id="carousel_view_action" model="ir.actions.act_window">
+        <field name="name">Carousel</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">carousel.view</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Banner Show!
+            </p>
+            <p>
+                Please add a new Image!
+            </p>
+        </field>
+    </record>
+
+    <!--        &lt;!&ndash; YourHome Root Menu &ndash;&gt;-->
+    <!--        <menuitem id="slide_show_menu"-->
+    <!--        name="My Slide"-->
+    <!--        sequence="86"-->
+    <!--        parent="website.menu_website_configuration"/>-->
+
+    <!--        &lt;!&ndash; Cities Submenu &ndash;&gt;-->
+    <!--        <menuitem id="slide_menu"-->
+    <!--        name="Slide"-->
+    <!--        sequence="1"-->
+    <!--        parent="slide_show_menu"-->
+    <!--        action="theme_odoo.slide_show_action"/>-->
+</odoo>

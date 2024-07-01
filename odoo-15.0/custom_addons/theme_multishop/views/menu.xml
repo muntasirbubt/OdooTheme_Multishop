@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Slide Root Menu -->
+    <menuitem id="root_show_menu_item"
+              name="Data Collection"
+              sequence="96"
+              parent="website.menu_website_configuration"/>
+
+    <!--Submenu -->
+<!--    <menuitem id="carousel_slide_menu_item"-->
+<!--              name="Carousel Data"-->
+<!--              sequence="1"-->
+<!--              parent="root_show_menu_item"-->
+<!--              action="theme_multishop.carousel_view_action"/>-->
+
+<!--    <menuitem id="custom_blog_redirect"-->
+<!--              name="Blog Page"-->
+<!--              sequence="7"-->
+<!--              parent="root_show_menu_item"-->
+<!--              action="theme_multishop.action_blog_redirect"/>-->
+
+
+    <menuitem id="featured_products_menu"
+              name="Featured Products" sequence="2"
+              parent="root_show_menu_item"
+              action="theme_multishop.featured_products_action"/>
+
+    <menuitem id="recent_products_menu"
+              name="Recent Product"
+              parent="root_show_menu_item" sequence="3"
+              action="theme_multishop.recent_products_action"/>
+
+    <menuitem id="offer_products_menu"
+              name="Offer Product"
+              parent="root_show_menu_item" sequence="4"
+              action="theme_multishop.offer_products_action"/>
+
+    <!--    <menuitem id="product_details_menu_item"-->
+    <!--              name="Product Details"-->
+    <!--              sequence="2"-->
+    <!--              parent="root_show_menu_item"-->
+    <!--              action="theme_project.product_details_action_view"/>-->
+
+    <!--    <menuitem id="product_category_menu_item"-->
+    <!--              name="Product Category"-->
+    <!--              sequence="3"-->
+    <!--              parent="root_show_menu_item"-->
+    <!--              action="theme_project.product_category_action_view"/>-->
+
+    <!--    <menuitem id="product_ads_menu"-->
+    <!--              name="Ads Product"-->
+    <!--              sequence="4"-->
+    <!--              parent="root_show_menu_item"-->
+    <!--              action="theme_project.product_ads_action"/>-->
+</odoo>

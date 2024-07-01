@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    <data>-->
+    <template id="custom_categories_snippet" name="Categories View">
+        <section id="categories_item">
+<!--            <p>All Category</p>-->
+            <div id="cate_test">
+
+            </div>
+
+        </section>
+    </template>
+
+
+    <!--        <template id="custom_categories_snippet" name="Categories View">-->
+    <!--            <section id="categories_item">-->
+    <!--                <div class="container-fluid pt-5">-->
+    <!--                    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">-->
+    <!--                        <span class="bg-secondary pr-3">Categories</span>-->
+    <!--                    </h2>-->
+    <!--                    <div class="row px-xl-5 pb-3">-->
+    <!--                        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">-->
+    <!--                            <a class="text-decoration-none" href="">-->
+    <!--                                <div class="cat-item d-flex align-items-center mb-4">-->
+    <!--                                    <div class="overflow-hidden" style="width: 100px; height: 100px;">-->
+    <!--                                        <img class="img-fluid" src="/theme_multishop/static/src/img/cat-1.jpg" alt=""/>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="flex-fill pl-3">-->
+    <!--                                        <h6>Category Name</h6>-->
+    <!--                                        <small class="text-body">100 Products</small>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">-->
+    <!--                            <a class="text-decoration-none" href="">-->
+    <!--                                <div class="cat-item img-zoom d-flex align-items-center mb-4">-->
+    <!--                                    <div class="overflow-hidden" style="width: 100px; height: 100px;">-->
+    <!--                                        <img class="img-fluid" src="/theme_multishop/static/src/img/cat-2.jpg" alt=""/>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="flex-fill pl-3">-->
+    <!--                                        <h6>Category Name</h6>-->
+    <!--                                        <small class="text-body">100 Products</small>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">-->
+    <!--                            <a class="text-decoration-none" href="">-->
+    <!--                                <div class="cat-item img-zoom d-flex align-items-center mb-4">-->
+    <!--                                    <div class="overflow-hidden" style="width: 100px; height: 100px;">-->
+    <!--                                        <img class="img-fluid" src="/theme_multishop/static/src/img/cat-3.jpg" alt=""/>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="flex-fill pl-3">-->
+    <!--                                        <h6>Category Name</h6>-->
+    <!--                                        <small class="text-body">100 Products</small>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+
+    <!--                        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">-->
+    <!--                            <a class="text-decoration-none" href="">-->
+    <!--                                <div class="cat-item img-zoom d-flex align-items-center mb-4">-->
+    <!--                                    <div class="overflow-hidden" style="width: 100px; height: 100px;">-->
+    <!--                                        <img class="img-fluid" src="/theme_multishop/static/src/img/cat-4.jpg" alt=""/>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="flex-fill pl-3">-->
+    <!--                                        <h6>Category Name</h6>-->
+    <!--                                        <small class="text-body">100 Products</small>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">-->
+    <!--                            <a class="text-decoration-none" href="">-->
+    <!--                                <div class="cat-item img-zoom d-flex align-items-center mb-4">-->
+    <!--                                    <div class="overflow-hidden" style="width: 100px; height: 100px;">-->
+    <!--                                        <img class="img-fluid" src="/theme_multishop/static/src/img/cat-4.jpg" alt=""/>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="flex-fill pl-3">-->
+    <!--                                        <h6>Category Name</h6>-->
+    <!--                                        <small class="text-body">100 Products</small>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">-->
+    <!--                            <a class="text-decoration-none" href="">-->
+    <!--                                <div class="cat-item img-zoom d-flex align-items-center mb-4">-->
+    <!--                                    <div class="overflow-hidden" style="width: 100px; height: 100px;">-->
+    <!--                                        <img class="img-fluid" src="/theme_multishop/static/src/img/cat-3.jpg" alt=""/>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="flex-fill pl-3">-->
+    <!--                                        <h6>Category Name</h6>-->
+    <!--                                        <small class="text-body">100 Products</small>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">-->
+    <!--                            <a class="text-decoration-none" href="">-->
+    <!--                                <div class="cat-item img-zoom d-flex align-items-center mb-4">-->
+    <!--                                    <div class="overflow-hidden" style="width: 100px; height: 100px;">-->
+    <!--                                        <img class="img-fluid" src="/theme_multishop/static/src/img/cat-2.jpg" alt=""/>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="flex-fill pl-3">-->
+    <!--                                        <h6>Category Name</h6>-->
+    <!--                                        <small class="text-body">100 Products</small>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">-->
+    <!--                            <a class="text-decoration-none" href="">-->
+    <!--                                <div class="cat-item img-zoom d-flex align-items-center mb-4">-->
+    <!--                                    <div class="overflow-hidden" style="width: 100px; height: 100px;">-->
+    <!--                                        <img class="img-fluid" src="/theme_multishop/static/src/img/cat-1.jpg" alt=""/>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="flex-fill pl-3">-->
+    <!--                                        <h6>Category Name</h6>-->
+    <!--                                        <small class="text-body">100 Products</small>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">-->
+    <!--                            <a class="text-decoration-none" href="">-->
+    <!--                                <div class="cat-item img-zoom d-flex align-items-center mb-4">-->
+    <!--                                    <div class="overflow-hidden" style="width: 100px; height: 100px;">-->
+    <!--                                        <img class="img-fluid" src="/theme_multishop/static/src/img/cat-2.jpg" alt=""/>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="flex-fill pl-3">-->
+    <!--                                        <h6>Category Name</h6>-->
+    <!--                                        <small class="text-body">100 Products</small>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">-->
+    <!--                            <a class="text-decoration-none" href="">-->
+    <!--                                <div class="cat-item img-zoom d-flex align-items-center mb-4">-->
+    <!--                                    <div class="overflow-hidden" style="width: 100px; height: 100px;">-->
+    <!--                                        <img class="img-fluid" src="/theme_multishop/static/src/img/cat-1.jpg" alt=""/>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="flex-fill pl-3">-->
+    <!--                                        <h6>Category Name</h6>-->
+    <!--                                        <small class="text-body">100 Products</small>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">-->
+    <!--                            <a class="text-decoration-none" href="">-->
+    <!--                                <div class="cat-item img-zoom d-flex align-items-center mb-4">-->
+    <!--                                    <div class="overflow-hidden" style="width: 100px; height: 100px;">-->
+    <!--                                        <img class="img-fluid" src="/theme_multishop/static/src/img/cat-4.jpg" alt=""/>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="flex-fill pl-3">-->
+    <!--                                        <h6>Category Name</h6>-->
+    <!--                                        <small class="text-body">100 Products</small>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">-->
+    <!--                            <a class="text-decoration-none" href="">-->
+    <!--                                <div class="cat-item img-zoom d-flex align-items-center mb-4">-->
+    <!--                                    <div class="overflow-hidden" style="width: 100px; height: 100px;">-->
+    <!--                                        <img class="img-fluid" src="/theme_multishop/static/src/img/cat-3.jpg" alt=""/>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="flex-fill pl-3">-->
+    <!--                                        <h6>Category Name</h6>-->
+    <!--                                        <small class="text-body">100 Products</small>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </a>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+
+    <!--            </section>-->
+    <!--        </template>-->
+    <!--    </data>-->
+</odoo>

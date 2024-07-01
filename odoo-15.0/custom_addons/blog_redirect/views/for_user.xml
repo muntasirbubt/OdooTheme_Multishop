@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="custom_blog_tree" model="ir.ui.view">
+        <field name="name">custom.blog.tree</field>
+        <field name="model">custom.blog</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <!--  it's form view -->
+    <record id="entree_custom_blog" model="ir.ui.view">
+        <field name="name">custom.blog.form</field>
+        <field name="model">custom.blog</field>
+        <field name="arch" type="xml">
+            <form string="Admit Student">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <button name="fetch_user_data" string="Blog Page" class="oe_highlight" type="object"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!--    how to action setting-->
+    <record id="action_custom_blog" model="ir.actions.act_window">
+        <field name="name">Custom Blog</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">custom.blog</field>
+        <field name="view_mode">tree,form</field>
+        <!-- it's dictionary which set default search value  -->
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face" style="color:red">Create a Blog!</p>
+        </field>
+    </record>
+</odoo>

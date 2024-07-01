@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="custom_recent_product_snippet" name="Recent Products View">
+            <section id="recent_item">
+                <div id="recent_product">
+                    <!--                    Recent Product Add here-->
+                </div>
+            </section>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,8 @@
+    .category-item {
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .category-item:hover {
+        background-color: #F0F0F0;
+        color: #000;
+    }

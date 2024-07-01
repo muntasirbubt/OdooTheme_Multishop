@@ -1,0 +1,20 @@
+header#top {
+    background: white;
+}
+.product-img.position-relative.overflow-hidden img {
+    width: auto !important;
+    height: 270px !important;
+    padding: 40px 30px !important;
+}
+
+.product-img.position-relative.overflow-hidden {
+    width: auto !important;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+.bg-secondary {
+    color: black;
+}

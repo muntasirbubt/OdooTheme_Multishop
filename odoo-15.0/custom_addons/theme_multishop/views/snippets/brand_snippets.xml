@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    For Brand-->
+    <template id="custom_brand_snippet" name="Brand View">
+        <section id="brand_item">
+
+        </section>
+    </template>
+</odoo>

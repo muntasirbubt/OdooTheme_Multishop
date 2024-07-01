@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_product_attribute_value_inherit" model="ir.ui.view">
+            <field name="name">product.attribute.value.inherit</field>
+            <field name="model">product.attribute</field>
+            <field name="priority">100</field>
+            <field name="inherit_id" ref="product.product_attribute_view_form"/>
+            <field name="arch" type="html">
+                <xpath expr="//field[@name='is_custom']" position="after">
+                    <field name="show_logo"/>
+                    <field name="image" widget="image" style="height:50px; width:50px;"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

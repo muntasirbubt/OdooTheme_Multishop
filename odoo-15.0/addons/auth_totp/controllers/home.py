@@ -7,14 +7,14 @@ from odoo.exceptions import AccessDenied
 from odoo.http import request
 
 TRUSTED_DEVICE_COOKIE = 'td_id'
-TRUSTED_DEVICE_AGE = 90*86400 # 90 days expiration
+TRUSTED_DEVICE_AGE = 90 * 86400  # 90 days expiration
 
 
 class Home(odoo.addons.web.controllers.main.Home):
     @http.route(
         '/web/login/totp',
         type='http', auth='public', methods=['GET', 'POST'], sitemap=False,
-        website=True, multilang=False # website breaks the login layout...
+        website=True, multilang=False  # website breaks the login layout...
     )
     def web_totp(self, redirect=None, **kwargs):
         if request.session.uid:
@@ -48,9 +48,9 @@ class Home(odoo.addons.web.controllers.main.Home):
                 response = request.redirect(self._login_redirect(request.session.uid, redirect=redirect))
                 if kwargs.get('remember'):
                     name = _("%(browser)s on %(platform)s",
-                        browser=request.httprequest.user_agent.browser.capitalize(),
-                        platform=request.httprequest.user_agent.platform.capitalize(),
-                    )
+                             browser=request.httprequest.user_agent.browser.capitalize(),
+                             platform=request.httprequest.user_agent.platform.capitalize(),
+                             )
                     geoip = request.session.geoip
                     if geoip:
                         name += " (%s, %s)" % (geoip['city'], geoip['country_name'])

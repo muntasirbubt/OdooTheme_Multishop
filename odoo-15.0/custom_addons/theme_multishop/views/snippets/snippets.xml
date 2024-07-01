@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="snippet_options" inherit_id="website.snippet_options">
+        <xpath expr="//we-select[@data-variable='header-template']/we-button[last()]" position="after">
+            <!--            <we-button title="Unisoft Header - 10" data-name="un_header_style_1_opt"-->
+            <!--                       data-customize-website-views="theme_multishop.custom_navbar_template"-->
+            <!--                       data-customize-website-variable="unisoft_style_1"-->
+            <!--                       data-img="/website/static/src/img/snippets_thumbs/s_badge.svg"/>-->
+
+            <we-button title="Boxed Unisoft" data-name="header_boxed_unisoft_opt"
+                       data-customize-website-views="theme_multishop.template_header_boxed_unisoft"
+                       data-customize-website-variable="'unisoft'"
+                       data-img="/website/static/src/img/snippets_options/header_template_boxed.svg"/>
+
+
+        </xpath>
+
+    </template>
+
+    <template id="custom_snippets_multishop" inherit_id="website.snippets" name="MultiShop Custom Snippets">
+        <xpath expr="//div[@id='snippet_structure']" position="before">
+            <div id="snippet_structure" class="o_panel">
+                <div class="o_panel_header">MultiShop</div>
+                <div class="o_panel_body">
+                    <t t-snippet="theme_multishop.custom_footer_snippets"
+                       t-thumbnail="/website/static/src/img/snippets_thumbs/s_banner.svg">
+                        <keywords>footer</keywords>
+                    </t>
+                    <!--                    <t t-snippet="theme_multishop.custom_topbar_snippets"-->
+                    <!--                       t-thumbnail="/website/static/src/img/snippets_thumbs/s_banner.svg">-->
+                    <!--                        <keywords>topbar</keywords>-->
+                    <!--                    </t>-->
+
+
+                    <!--Carousel Snippet-->
+                    <t t-snippet="theme_multishop.custom_carousel_snippet"
+                       t-thumbnail="/website/static/src/img/snippets_thumbs/s_banner.svg">
+                        <keywords>Carousel Views</keywords>
+                    </t>
+
+
+                    <t t-snippet="theme_multishop.custom_shop_snippets"
+                       t-thumbnail="/website/static/src/img/snippets_thumbs/s_carousel.svg">
+                        <keywords>shop</keywords>
+                    </t>
+                    <t t-snippet="theme_multishop.custom_shop_details_snippets"
+                       t-thumbnail="/website/static/src/img/snippets_thumbs/s_product_list.svg">
+                        <keywords>shop,details</keywords>
+                    </t>
+                    <t t-snippet="theme_multishop.custom_shopping_cart_snippets"
+                       t-thumbnail="/website/static/src/img/snippets_thumbs/s_card.svg">
+                        <keywords>shop,cart</keywords>
+                    </t>
+                    <t t-snippet="theme_multishop.custom_check_out_snippets"
+                       t-thumbnail="/website/static/src/img/snippets_thumbs/s_card.svg">
+                        <keywords>check,out</keywords>
+                    </t>
+
+                    <!--                    Featured Products View Snippet-->
+                    <t t-snippet="theme_multishop.featured_product_snippet"
+                       t-thumbnail="website/static/src/img/snippets_thumbs/s_features_grid.svg">
+                        <keywords>Featured Products View</keywords>
+                    </t>
+
+
+                    <t t-snippet="theme_multishop.custom_categories_snippet"
+                       t-thumbnail="/website/static/src/img/snippets_thumbs/s_media_list.svg">
+                        <keywords>product,categories</keywords>
+                    </t>
+
+                    <!--Recent Products View Snippet -->
+                    <t t-snippet="theme_multishop.custom_recent_product_snippet"
+                       t-thumbnail="website/static/src/img/snippets_thumbs/s_features_grid.svg">
+                        <keywords>Recent Products View</keywords>
+                    </t>
+
+<!--                    offer product-->
+                     <t t-snippet="theme_multishop.custom_offer_snippet"
+                       t-thumbnail="website/static/src/img/snippets_thumbs/s_cover.svg">
+                        <keywords>Offer Products View</keywords>
+                    </t>
+
+
+                </div>
+            </div>
+        </xpath>
+
+    </template>
+</odoo>

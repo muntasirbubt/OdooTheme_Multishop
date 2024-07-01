@@ -176,7 +176,7 @@
             <div class="card-body p-0 o_wsale_product_information">
                 <div class="p-2 o_wsale_product_information_text">
                     <h6 class="o_wsale_products_item_title mb-1">
-                        <a class="text-primary text-decoration-none" itemprop="name" t-att-href="product_href" t-att-content="product.name" t-field="product.name" />
+                        <a class="text-primary text-decoration-none" itemprop="name" t-att-href="product_href" t-att-content="product.name" t-field="product.name"/>
                         <a role="button" t-if="not product.website_published" t-att-href="product_href" class="btn btn-sm btn-danger" title="This product is unpublished.">Unpublished</a>
                     </h6>
                     <div class="product_price mb-1" itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">
@@ -397,7 +397,7 @@
             <ul t-if="c.child_id" class="nav flex-column nav-hierarchy">
                 <t t-foreach="c.child_id" t-as="c">
                     <t t-if="not search or c.id in search_categories_ids">
-                        <t t-call="website_sale.categories_recursive" />
+                        <t t-call="website_sale.categories_recursive"/>
                     </t>
                 </t>
             </ul>
@@ -566,7 +566,7 @@
         <t t-set="product_variant" t-value="product.env['product.product'].browse(combination_info['product_id'])"/>
 
         <t t-call="website.layout">
-            <t t-set="additional_title" t-value="product.name" />
+            <t t-set="additional_title" t-value="product.name"/>
             <div itemscope="itemscope" itemtype="http://schema.org/Product" id="wrap" class="js_sale">
                 <div class="oe_structure oe_empty oe_structure_not_nearest" id="oe_structure_website_sale_product_1" data-editor-message="DROP BUILDING BLOCKS HERE TO MAKE THEM AVAILABLE ACROSS ALL PRODUCTS"/>
                 <section t-attf-class="container py-4 oe_website_sale #{'discount' if combination_info['has_discounted_price'] else ''}" id="product_detail"
@@ -617,7 +617,7 @@
                                     </t>
                                 </a>
                             </t>
-                            <p t-field="product.description_sale" class="text-muted my-2" placeholder="A short description that will also appear on documents." />
+                            <p t-field="product.description_sale" class="text-muted my-2" placeholder="A short description that will also appear on documents."/>
                             <form t-if="product._is_add_to_cart_possible()" action="/shop/cart/update" method="POST">
                                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                                 <div class="js_product js_main_product mb-3">
@@ -846,7 +846,6 @@
 
     <template id="wizard_checkout" name="Wizard Checkout">
         <t t-set="website_sale_order" t-value="website.sale_get_order()"/>
-
         <div class="row">
             <div class="col-xl">
                 <div class="wizard">

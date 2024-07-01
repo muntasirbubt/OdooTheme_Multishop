@@ -1,0 +1,208 @@
+<odoo>
+    <!-- Search Bar input-group template -->
+    <template id="search" name="Search Box">
+        <t t-call="website.website_search_box_input">
+            <t t-set="_form_classes" t-valuef="o_wsale_products_searchbar_form w-100 w-md-auto mr-auto mb-2"/>
+            <t t-set="_classes" t-valuef=" "/>
+            <t t-set="search_type" t-valuef="products"/>
+            <t t-set="action"
+               t-value="keep('/shop'+ ('/category/'+slug(category)) if category else None, search=0) or '/shop'"/>
+            <t t-set="display_image" t-valuef="true"/>
+            <t t-set="display_description" t-valuef="true"/>
+            <t t-set="display_extra_link" t-valuef="true"/>
+            <t t-set="display_detail" t-valuef="true"/>
+            <t t-if="attrib_values">
+                <t t-foreach="attrib_values" t-as="a">
+                    <input type="hidden" name="attrib" t-att-value="'%s-%s' % (a[0], a[1])"/>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!--Product Breadcrumb-->
+    <template id="products_breadcrumb" name="Products Breadcrumb">
+        <ol t-if="category" t-attf-class="breadcrumb #{_classes}">
+            <li class="breadcrumb-item">
+                <a href="/shop">Products</a>
+            </li>
+            <t t-foreach="category.parents_and_self" t-as="cat">
+                <li t-if="cat == category" class="breadcrumb-item">
+                    <span class="d-inline-block" t-field="cat.name"/>
+                </li>
+                <li t-else="" class="breadcrumb-item">
+                    <a t-att-href="keep('/shop/category/%s' % slug(cat), category=0)" t-field="cat.name"/>
+                </li>
+            </t>
+        </ol>
+    </template>
+
+    <!--    For Price list-->
+    <template id="pricelist_list" name="Pricelists Dropdown">
+        <t t-set="website_sale_pricelists" t-value="website.get_pricelist_available(show_visible=True)"/>
+        <div t-attf-class="o_pricelist_dropdown dropdown#{'' if website_sale_pricelists and len(website_sale_pricelists)&gt;1 else ' d-none'} #{_classes}">
+            <t t-set="curr_pl" t-value="website.get_current_pricelist()"/>
+            <a role="button" href="#" class="dropdown-toggle btn btn-light border-0 px-0 text-muted align-baseline"
+               data-toggle="dropdown">
+                <t t-esc="curr_pl and curr_pl.name or ' - '"/>
+            </a>
+            <div class="dropdown-menu" role="menu">
+                <t t-foreach="website_sale_pricelists" t-as="pl">
+                    <a role="menuitem" t-att-href="'/shop/change_pricelist/%s' % pl.id" class="dropdown-item">
+                        <span class="switcher_pricelist" t-att-data-pl_id="pl.id" t-esc="pl.name"/>
+                    </a>
+                </t>
+            </div>
+        </div>
+    </template>
+
+    <!--For Product item(individual)-->
+    <template id="products_item" name="Products item">
+        <t t-set="product_href"
+           t-value="keep(product.website_url, page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))"/>
+
+        <t t-set="combination_info"
+           t-value="product._get_combination_info(only_template=True, add_qty=add_qty or 1, pricelist=pricelist)"/>
+
+        <form action="/shop/cart/update" method="post" class="card oe_product_cart"
+              t-att-data-publish="product.website_published and 'on' or 'off'"
+              itemscope="itemscope" itemtype="http://schema.org/Product">
+            <a class="o_product_link css_editable_mode_hidden" t-att-href="product_href"/>
+            <div class="card-body p-1 oe_product_image">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                <a t-att-href="product_href" class="d-block h-100" itemprop="url">
+                    <t t-set="image_holder" t-value="product._get_image_holder()"/>
+                    <span t-field="image_holder.image_1920"
+                          t-options="{'widget': 'image', 'preview_image': 'image_1024' if product_image_big else 'image_256', 'itemprop': 'image'}"
+                          class="d-flex h-100 justify-content-center align-items-center"/>
+                </a>
+            </div>
+            <div class="card-body p-0 o_wsale_product_information">
+                <div class="p-2 o_wsale_product_information_text">
+                    <h6 class="o_wsale_products_item_title mb-1">
+                        <a class="text-primary text-decoration-none" itemprop="name" t-att-href="product_href"
+                           t-att-content="product.name" t-field="product.name"/>
+                        <a role="button" t-if="not product.website_published" t-att-href="product_href"
+                           class="btn btn-sm btn-danger" title="This product is unpublished.">Unpublished
+                        </a>
+                    </h6>
+                    <div class="product_price mb-1" itemprop="offers" itemscope="itemscope"
+                         itemtype="http://schema.org/Offer">
+                        <span class="h5" t-if="combination_info['price']" t-esc="combination_info['price']"
+                              t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                        <del t-attf-class="text-danger ml-1 h6 {{'' if combination_info['has_discounted_price'] else 'd-none'}}"
+                             style="white-space: nowrap;" t-esc="combination_info['list_price']"
+                             t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                        <span itemprop="price" style="display:none;" t-esc="combination_info['price']"/>
+                        <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name"/>
+                    </div>
+                </div>
+                <div class="o_wsale_product_btn pl-2"/>
+            </div>
+            <t t-set="bg_color" t-value="td_product['ribbon']['bg_color'] or ''"/>
+            <t t-set="text_color" t-value="td_product['ribbon']['text_color']"/>
+            <t t-set="bg_class" t-value="td_product['ribbon']['html_class']"/>
+            <span t-attf-class="o_ribbon #{bg_class}"
+                  t-attf-style="#{text_color and ('color: %s; ' % text_color)}#{bg_color and 'background-color:' + bg_color}"
+                  t-out="td_product['ribbon']['html'] or ''"/>
+        </form>
+    </template>
+
+    <!-- /shop product listing -->
+    <template id="products" name="Products">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Shop</t>
+            <div id="wrap" class="js_sale">
+                <div class="oe_structure oe_empty oe_structure_not_nearest" id="oe_structure_website_sale_products_1"/>
+                <div class="container-fluid oe_website_sale pt-2">
+                    <div class="row o_wsale_products_main_row px-xl-5">
+                        <div t-if="enable_left_column" id="products_grid_before" class="col-lg-3 pb-2">
+                            <div class="products_categories"/>
+                            <div class="products_attributes_filters"/>
+                        </div>
+                        <div id="products_grid"
+                             t-attf-class="col #{'o_wsale_layout_list' if layout_mode == 'list' else ''}">
+                            <t t-call="website_sale.products_breadcrumb">
+                                <t t-set="_classes" t-valuef="w-100"/>
+                            </t>
+                            <div class="products_header form-inline flex-md-nowrap justify-content-end mb-4">
+                                <t t-call="website_sale.search">
+                                    <t t-set="_classes" t-valuef="w-100 w-md-auto mr-auto mb-2"/>
+                                    <t t-set="search" t-value="original_search or search"/>
+                                </t>
+                                <t t-call="website_sale.pricelist_list">
+                                    <t t-set="_classes" t-valuef="ml-3 mb-2"/>
+                                </t>
+                            </div>
+                            <div t-if="original_search and bins" class="alert alert-warning mt8">
+                                No results found for '<span t-esc="original_search"/>'. Showing results for '<span
+                                    t-esc="search"/>'.
+                            </div>
+                            <t t-if="category">
+                                <t t-set='editor_msg'>Drag building blocks here to customize the header for "<t
+                                        t-esc='category.name'/>" category.
+                                </t>
+                                <div class="mb16" id="category_header" t-att-data-editor-message="editor_msg"
+                                     t-field="category.website_description"/>
+                            </t>
+                            <div t-if="bins" class="o_wsale_products_grid_table_wrapper">
+                                <table class="table table-borderless m-0" t-att-data-ppg="ppg" t-att-data-ppr="ppr">
+                                    <colgroup t-ignore="true">
+                                        <!-- Force the number of columns (useful when only one row of (x < ppr) products) -->
+                                        <col t-foreach="ppr" t-as="p"/>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr t-foreach="bins" t-as="tr_product">
+                                            <t t-foreach="tr_product" t-as="td_product">
+                                                <t t-if="td_product">
+                                                    <t t-set="product" t-value="td_product['product']"/>
+                                                    <!-- We use t-attf-class here to allow easier customization -->
+                                                    <td t-att-colspan="td_product['x'] != 1 and td_product['x']"
+                                                        t-att-rowspan="td_product['y'] != 1 and td_product['y']"
+                                                        t-attf-class="oe_product"
+                                                        t-att-data-ribbon-id="td_product['ribbon'].id">
+                                                        <div t-attf-class="o_wsale_product_grid_wrapper o_wsale_product_grid_wrapper_#{td_product['x']}_#{td_product['y']}">
+                                                            <t t-call="website_sale.products_item">
+                                                                <t t-set="product_image_big"
+                                                                   t-value="td_product['x'] + td_product['y'] &gt; 2"/>
+                                                            </t>
+                                                        </div>
+                                                    </td>
+                                                </t>
+                                                <td t-else=""/>
+                                            </t>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <t t-else="">
+                                <div class="text-center text-muted mt128 mb256">
+                                    <t t-if="not search">
+                                        <h3 class="mt8">No product defined</h3>
+                                        <p t-if="category">No product defined in category "<strong
+                                                t-esc="category.display_name"/>".
+                                        </p>
+                                    </t>
+                                    <t t-else="">
+                                        <h3 class="mt8">No results</h3>
+                                        <p>No results for "<strong t-esc='search'/>"
+                                            <t t-if="category">in category "<strong t-esc="category.display_name"/>"
+                                            </t>
+                                            .
+                                        </p>
+                                    </t>
+                                    <p t-ignore="true" groups="sales_team.group_sale_manager">Click <i>'New'</i> in the
+                                        top-right corner to create your first product.
+                                    </p>
+                                </div>
+                            </t>
+                            <div class="products_pager form-inline justify-content-center py-3">
+                                <t t-call="website.pager"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oe_structure oe_empty oe_structure_not_nearest" id="oe_structure_website_sale_products_2"/>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access.carousel.view,access_carousel_view,theme_multishop.model_carousel_view,,1,1,1,1
+access_featured_products,featured.products,theme_multishop.model_featured_products,,1,1,1,1
+access_recently_added_products,recently_added.products,theme_multishop.model_recently_added_products,,1,1,1,1
+access_offer_product,offer.product,theme_multishop.model_offer_product,,1,1,1,1

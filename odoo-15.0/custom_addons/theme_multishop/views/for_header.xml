@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="template_header_default_inherited" inherit_id="theme_multishop.template_header_boxed_unisoft">
+        <xpath expr="//div[@id='top_menu_container']" position="after">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark " id="new">
+                <div class="container" id="nav-bg">
+                    <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
+                        <div class="col-lg-4">
+                            <a href="" class="text-decoration-none">
+                                <span class="h1 text-uppercase text-primary bg-dark px-2">Multi</span>
+                                <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Shop</span>
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-6 text-left">
+                            <form action="">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search for products"/>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-transparent text-primary">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-lg-4 col-6 text-right">
+                            <p class="m-0">Customer Service</p>
+                            <h5 class="m-0">+012 345 6789</h5>
+                        </div>
+                    </div>
+
+                    <!--  Navbar Collapse  -->
+                    <div id="top_menu_collapse" class="collapse navbar-collapse order-last order-lg-0">
+                        <t t-call="website.navbar_nav">
+                            <t t-set="_nav_class" t-value="'flex-grow-1'"/>
+                            <!--  Menu  -->
+                            <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                                <t t-call="website.submenu">
+                                    <t t-set="item_class" t-value="'nav-item'"/>
+                                    <t t-set="link_class" t-value="'nav-link'"/>
+                                </t>
+                            </t>
+                            <!--  Sign In  -->
+                            <t t-call="portal.placeholder_user_sign_in">
+                                <t t-set="_item_class" t-value="'nav-item ml-lg-auto'"/>
+                                <t t-set="_link_class" t-value="'nav-link font-weight-bold'"/>
+                            </t>
+                            <!--  User Dropdown  -->
+                            <t t-call="portal.user_dropdown">
+                                <t t-set="_user_name" t-value="true"/>
+                                <t t-set="_item_class" t-value="'nav-item dropdown ml-lg-auto'"/>
+                                <t t-set="_link_class" t-value="'nav-link font-weight-bold'"/>
+                            </t>
+                        </t>
+                    </div>
+                </div>
+            </nav>
+        </xpath>
+    </template>
+</odoo>

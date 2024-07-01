@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    Custom Boxed Template -->
+    <template id="template_header_boxed_unisoft" inherit_id="website.layout" name="Template Header Boxed Unisoft"
+              active="False">
+        <xpath expr="//header//nav" position="replace">
+            <div class="o_header_boxed_background o_colored_level o_cc pt8 bg-red">
+                <div class="d-flex align-items-center flex-wrap px-xl-5 ">
+                    <!-- Social Icons -->
+                    <div class="oe_structure oe_structure_solo" id="oe_structure_custom_header_boxed_1"/>
+                    <!--                    Custom des-1-->
+                    <ul class="nav ml-auto flex-nowrap" contenteditable="false">
+                        <div class="oe_structure oe_structure_solo" id="oe_structure_custom_header_boxed_4">
+                            <!-- Sign In -->
+                            <t t-call="portal.placeholder_user_sign_in">
+                                <t t-set="_item_class" t-valuef="nav-item ml-lg-3"/>
+                                <t t-set="_link_class" t-valuef="nav-link font-weight-bold"/>
+                            </t>
+                            <t t-call="portal.user_dropdown">
+                                <t t-set="_avatar" t-value="true"/>
+                                <t t-set="_item_class" t-valuef="nav-item dropdown ml-lg-3"/>
+                                <t t-set="_link_class" t-valuef="nav-link"/>
+                                <t t-set="_dropdown_menu_class" t-valuef="dropdown-menu-right"/>
+                            </t>
+
+                        </div>
+                    </ul>
+                    <!-- Language Selector -->
+                    <t t-call="website.placeholder_header_language_selector">
+                        <t t-set="_div_classes" t-valuef="ml-2 d-none d-sm-block"/>
+                    </t>
+                </div>
+            </div>
+            <div class="oe_structure oe_structure_solo" id="oe_structure_custom_header_boxed_2"/>
+            <div id="top_menu_container" class="bg-dark">
+                <t t-call="website.navbar">
+                    <t t-set="_navbar_classes" t-valuef="shadow-sm rounded pr-2"/>
+                    <!-- Brand -->
+
+                    <!-- Navbar Toggler -->
+                    <t t-call="website.navbar_toggler"/>
+
+
+                    <!-- Navbar Collapse -->
+                    <div class="container-fluid bg-dark col-12">
+                        <div class="row col-12 px-xl-5">
+                            <div id="top_menu_collapse" class="collapse navbar-collapse">
+                                <div class="oe_structure oe_structure_solo" id="oe_structure_custom_header_boxed_3"/>
+                                <!--                                <div class="col-lg-12">-->
+                                <div class="col-9">
+                                    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0 px-lg-0 pr-0 pl-0">
+                                        <div class="collapse navbar-collapse d-flex justify-content-between"
+                                             id="navbarCollapse">
+                                            <div class="navbar-nav mr-auto">
+                                                <t t-call="website.navbar_nav">
+                                                    <t t-set="_nav_class" t-valuef="mx-auto"/>
+                                                    <t t-foreach="website.menu_id.child_id" t-as="submenu">
+
+                                                        <t t-call="website.submenu">
+                                                            <div class="nav-item nav-link active">
+                                                                <t t-set="item_class" t-valuef="nav-item"/>
+                                                                <t t-set="link_class" t-valuef="nav-link"/>
+                                                            </div>
+                                                        </t>
+                                                    </t>
+                                                </t>
+                                            </div>
+
+                                            <!-- Language Selector -->
+                                            <!--                                            <div>-->
+                                            <!--                                                <t t-call="website.placeholder_header_language_selector">-->
+                                            <!--                                                    <t t-set="_div_classes" t-valuef="d-block d-sm-none mb-2"/>-->
+                                            <!--                                                    <t t-set="_dropdown_menu_class"-->
+                                            <!--                                                       t-valuef="dropdown-menu-right position-static float-none"/>-->
+                                            <!--                                                </t>-->
+                                            <!--                                            </div>-->
+                                            <!-- Call To Action -->
+                                            <div class="oe_structure oe_structure_solo"
+                                                 id="oe_structure_custom_header_boxed_5">
+                                                <t t-call="website.placeholder_header_call_to_action">
+                                                    <t t-set="_div_classes" t-valuef="ml-lg-3"/>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </nav>
+                                </div>
+                                <!--                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </xpath>
+
+    </template>
+    <!--    For Cart option-->
+    <!--    <template id="template_header_boxed_customg" inherit_id="website.template_header_boxed">-->
+    <!--        <xpath expr="//t[@t-call='portal.placeholder_user_sign_in']" position="before">-->
+    <!--            <t t-call="website_sale.header_cart_link">-->
+    <!--                <t t-set="_text" t-value="True"/>-->
+    <!--                <t t-set="_item_class" t-value="'nav-item'"/>-->
+    <!--                <t t-set="_link_class" t-value="'nav-link'"/>-->
+    <!--            </t>-->
+    <!--        </xpath>-->
+    <!--    </template>-->
+
+    <template id="template_header_boxed_custom" inherit_id="website.template_header_boxed">
+        <xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="after">
+            <t t-call="website_sale.header_cart_link">
+                <t t-set="_text" t-value="True"/>
+                <t t-set="_item_class" t-value="'nav-item'"/>
+                <t t-set="_link_class" t-value="'nav-link'"/>
+            </t>
+        </xpath>
+    </template>
+    <template id="template_header_boxed" inherit_id="website_sale.template_header_boxed">
+        <xpath expr="//t[@t-call='website_sale.header_cart_link']" position="replace">
+            <t t-call="website_sale_wishlist.header_wishlist_link">
+                <t t-set="_text" t-value="True"/>
+                <t t-set="_item_class" t-value="'nav-item ml-lg-3'"/>
+                <t t-set="_link_class" t-value="'nav-link'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <!--    For Topbar section -->
+    <template id="template_custom_header_boxed_oe_structure_header_boxed_1"
+              inherit_id="theme_multishop.template_header_boxed_unisoft"
+              name="Template Custom Header Boxed">
+        <xpath expr="//*[hasclass('oe_structure')][@id='oe_structure_custom_header_boxed_1']" position="replace">
+            <div class="oe_structure oe_structure_solo" id="oe_structure_custom_header_boxed_1">
+                <section class="s_text_block" data-snippet="s_text_block" name="Text">
+                    <div class="container-fluid">
+                        <div class="row bg-secondary py-2 px-1">
+                            <div class="col-lg-6 d-none d-lg-block">
+                                <div class="d-inline-flex align-items-center h-100">
+                                    <a class="text-body mr-3" href="">About</a>
+                                    <a class="text-body mr-3" href="">Contact</a>
+                                    <a class="text-body mr-3" href="">Help</a>
+                                    <a class="text-body mr-3" href="">FAQs</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+
+    <!--    For User Dropdouwn (sign In and Sign Out)-->
+    <template id="template_custom_header_boxed_oe_structure_header_boxed_4"
+              inherit_id="theme_multishop.template_header_boxed_unisoft"
+              name="Template Custom Header Boxed">
+        <xpath expr="//*[hasclass('oe_structure')][@id='oe_structure_custom_header_boxed_4']" position="replace">
+            <div class="oe_structure oe_structure_solo" id="oe_structure_custom_header_boxed_4">
+                <section class="s_text_block" data-snippet="s_text_block" name="Text">
+                    <!--                    <div class="container-fluid">-->
+                    <div class="row bg-secondary py-0 px-3">
+                        <div class="col-lg-6 text-center text-lg-right">
+                            <div class="d-inline-flex align-items-center">
+                                <div class="btn-group">
+                                    <!--                                    <button type="button" class="btn btn-sm btn-light dropdown-toggle"-->
+                                    <!--                                            data-toggle="dropdown">My Account-->
+                                    <!--                                    </button>-->
+                                    <!--                                    <div class="dropdown-menu dropdown-menu-right">-->
+
+
+                                    <!-- Sign In -->
+                                    <t t-call="portal.placeholder_user_sign_in">
+                                        <t t-set="_item_class" t-valuef="nav-item ml-lg-3"/>
+                                        <t t-set="_link_class" t-valuef="nav-link font-weight-bold"/>
+                                    </t>
+
+
+                                    <t t-call="portal.user_dropdown">
+                                        <t t-set="_avatar" t-value="true"/>
+                                        <t t-set="_item_class" t-valuef="nav-item dropdown ml-lg-3"/>
+                                        <t t-set="_link_class" t-valuef="nav-link"/>
+                                        <t t-set="_dropdown_menu_class" t-valuef="dropdown-menu-right"/>
+                                    </t>
+                                    <!--                                    </div>-->
+                                </div>
+                                <div class="btn-group mx-2">
+                                    <button type="button" class="btn btn-sm btn-light dropdown-toggle"
+                                            data-toggle="dropdown">USD
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <button class="dropdown-item" type="button">EUR</button>
+                                        <button class="dropdown-item" type="button">GBP</button>
+                                        <button class="dropdown-item" type="button">CAD</button>
+                                    </div>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-light dropdown-toggle"
+                                            data-toggle="dropdown">EN
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <button class="dropdown-item" type="button">FR</button>
+                                        <button class="dropdown-item" type="button">AR</button>
+                                        <button class="dropdown-item" type="button">RU</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-inline-flex align-items-center d-block d-lg-none">
+                                <a href="" class="btn px-0 ml-2">
+                                    <i class="fas fa-heart text-dark"></i>
+                                    <span class="badge text-dark border border-dark rounded-circle"
+                                          style="padding-bottom: 2px;">0
+                                    </span>
+                                </a>
+                                <a href="" class="btn px-0 ml-2">
+                                    <i class="fas fa-shopping-cart text-dark"></i>
+                                    <span class="badge text-dark border border-dark rounded-circle"
+                                          style="padding-bottom: 2px;">0
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                    </div>-->
+                </section>
+            </div>
+        </xpath>
+    </template>
+
+    <!--For MULTI SHOP,contact services-->
+    <template id="template_header_boxed_oe_structure_header_boxed_2" inherit_id="template_header_boxed_unisoft"
+              name="Template Custom Header Boxed (oe_structure_header_boxed_2)">
+        <xpath expr="//*[hasclass('oe_structure')][@id='oe_structure_custom_header_boxed_2']" position="replace">
+            <div class="oe_structure oe_structure_solo" id="oe_structure_custom_header_boxed_2">
+                <section class="s_text_block" data-snippet="s_text_block" name="Text">
+                    <div class="px-xl-3">
+                        <div class="row align-items-center bg-light py-2 px-xl-5 d-none d-lg-flex">
+                            <div class="col-lg-4">
+                                <a href="/" class="text-decoration-none">
+                                    <span class="h1 text-uppercase text-primary bg-dark px-2">Multi</span>
+                                    <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Shop</span>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-6 text-left">
+                                <form action="">
+                                    <div class="input-group">
+                                        <!--   <input type="text" class="form-control" placeholder="Search for products"/>-->
+                                        <div class="bg-transparent text-primary mb-4">
+<!--                                            <span class="input-group-text bg-transparent text-primary">-->
+<!--                                                <t t-call="website_sale.search">-->
+<!--                                                    <t t-set="_classes" t-valuef="w-100 w-md-auto mr-auto mb-2"/>-->
+<!--                                                    <t t-set="search" t-value="original_search or search"/>-->
+<!--                                                </t>-->
+<!--                                            </span>-->
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-lg-4 col-6 text-right">
+                                <p class="m-0">Customer Service</p>
+                                <h5 class="m-0">+012 345 6789</h5>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="template_header_boxed_oe_structure_header_boxed_5" inherit_id="template_header_boxed_unisoft"
+              name="Template Custom Header Boxed (oe_structure_header_boxed_2)">
+        <xpath expr="//*[hasclass('oe_structure')][@id='oe_structure_custom_header_boxed_5']" position="replace">
+            <div class="oe_structure oe_structure_solo" id="oe_structure_custom_header_boxed_5">
+                <section class="s_text_block" data-snippet="s_text_block" name="Text">
+                    <div class="navbar-nav ml-auto py-0 d-none d-lg-block"
+                         style="display: flex !important; width: 80px;">
+                        <!--                        For Wishlist-->
+                        <!--                                                <t t-set="wishcount" t-value="len(request.env['product.wishlist'].current())"/>-->
+                        <!--                                                <t t-set="show_wishes" t-value="True"/>-->
+                        <!--                                                <li t-attf-class="o_wsale_my_wish #{not show_wishes and 'd-none'} #{_item_class}">-->
+                        <!--                                                    <a href="/shop/wishlist" t-attf-class="#{_link_class}">-->
+                        <!--                                                        <i t-if="_icon" class="fa fa-1x fa-heart"/>-->
+                        <!--                                                        <span t-if="_text">Wishlist</span>-->
+                        <!--                                                        <sup t-esc="wishcount"-->
+                        <!--                                                             t-attf-class="my_wish_quantity o_animate_blink badge badge-primary"/>-->
+                        <!--                                                    </a>-->
+                        <!--                                                </li>-->
+
+                        <!--                        <t t-set="wishcount" t-value="len(request.env['product.wishlist'].current())"/>-->
+                        <!--                        <t t-set="show_wishes" t-value="True"/>-->
+                        <!--                        <li t-attf-class="o_wsale_my_wish #{not show_wishes and 'd-none'} #{_item_class}">-->
+                        <!--                            <a href="/shop/wishlist" t-attf-class="#{_link_class}">-->
+                        <!--                                <i t-if="_icon" class="fa fa-1x fa-heart"/>-->
+                        <!--                                <span t-if="_text">Wishlist</span>-->
+                        <!--                                <sup t-esc="wishcount"-->
+                        <!--                                     t-attf-class="my_wish_quantity o_animate_blink badge badge-primary"/>-->
+                        <!--                            </a>-->
+                        <!--                        </li>-->
+                        <!--                        End of wishlist-->
+
+
+                        <!--                        <a>-->
+                        <!--                            <t t-call="website_sale.header_cart_link">-->
+                        <!--                                <t t-set="_text" t-value="True"/>-->
+                        <!--                                <t t-set="_item_class" t-value="'nav-item'"/>-->
+                        <!--                                <t t-set="_link_class" t-value="'nav-link'"/>-->
+                        <!--                            </t>-->
+                        <!--                        </a>-->
+                        <t t-set="website_sale_order"
+                           t-value="website.sale_get_order()"/>
+                        <t t-set="show_cart" t-value="true"/>
+                        <li t-attf-class="nav-item} divider d-none"/> <!-- Make sure the cart and related menus are not folded (see autohideMenu) -->
+                        <li t-attf-class="o_wsale_my_cart #{not show_cart and 'd-none'} nav-item">
+                            <a href="/shop/cart"
+                               t-attf-class="nav-link">
+                                <i class="fa fa-shopping-cart">
+                                </i>
+                                <span t-if="_text">My Cart</span>
+                                <sup class="my_cart_quantity badge badge-primary"
+                                     t-esc="website_sale_order and website_sale_order.cart_quantity or '0'"
+                                     t-att-data-order-id="website_sale_order and website_sale_order.id or ''"/>
+                            </a>
+                        </li>
+                        <!--                        <a href="" class="btn px-0 ml-3">-->
+                        <!--                            -->
+                        <!--                            <i class="fa fa-shopping-cart text-primary"></i>-->
+                        <!--                            <span class="badge text-secondary border border-secondary rounded-circle"-->
+                        <!--                                  style="padding-bottom: 2px;">0-->
+                        <!--                            </span>-->
+                        <!--                        </a>-->
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+
+    <!--    <template id="" inherit_id="website_sale_wishlist.header_wishlist_link">-->
+    <!--        <xpath expr="." position="after">-->
+    <!--    <t t-set="wishcount" t-value="len(request.env['product.wishlist'].current())"/>-->
+    <!--    <t t-set="show_wishes" t-value="True"/>-->
+    <!--    <li t-attf-class="o_wsale_my_wish #{not show_wishes and 'd-none'} #{_item_class}">-->
+    <!--        <a href="/shop/wishlist" t-attf-class="#{_link_class}">-->
+    <!--            <i t-if="_icon" class="fa fa-1x fa-heart"/>-->
+    <!--            <span t-if="_text">Wishlist</span>-->
+    <!--            <sup t-esc="wishcount" t-attf-class="my_wish_quantity o_animate_blink badge badge-primary"/>-->
+    <!--        </a>-->
+    <!--    </li>-->
+    <!--        </xpath>-->
+    <!--    </template>-->
+
+
+    <!--    For Category-->
+    <template id="template_header_boxed_oe_structure_header_boxed_3" inherit_id="template_header_boxed_unisoft"
+              name="Template Custom Header Boxed">
+        <xpath expr="//*[hasclass('oe_structure')][@id='oe_structure_custom_header_boxed_3']" position="replace">
+            <div class="col-3 oe_structure oe_structure_solo" id="oe_structure_custom_header_boxed_3">
+                <section class="s_text_block" data-snippet="s_text_block" name="Text">
+                    <div class="d-none d-lg-block">
+                        <ul class="nav">
+                            <li class="nav-item dropdown col-12 pl-0">
+                                <a class="nav-link dropdown-toggle btn d-flex align-items-center justify-content-between bg-primary w-100"
+                                   href="#" id="categoriesDropdown"
+                                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false" style="height: 65px; padding: 0 50px;">
+                                    <h6 class="text-dark m-0">
+                                        <i class="fa fa-bars mr-2"></i>
+                                        Categories
+                                    </h6>
+                                    <i class="fa fa-angle-down text-dark"></i>
+                                </a>
+                                <div class="dropdown-menu collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light"
+                                     style="width: calc(100% - 0); z-index: 999;"
+                                     aria-labelledby="categoriesDropdown">
+                                    <div class="navbar-nav w-100 mr-4">
+                                        <ul>
+                                            <t t-foreach="env['product.public.category'].search([('parent_id', '=', False)])"
+                                               t-as="category">
+                                                <li>
+                                                    <a t-attf-href="/shop/category/#{(category.id)}"
+                                                       class="category-item">
+                                                        <t t-raw="category.name"/>
+                                                    </a>
+
+                                                    <ul t-if="category.child_id">
+                                                        <t t-call="theme_multishop.custom_template_name"
+
+                                                           t-with="{'children': category.child_id}"/>
+                                                    </ul>
+                                                </li>
+                                            </t>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="custom_template_name">
+        <t t-foreach="category.child_id" t-as="category">
+            <ul>
+                <li>
+                    <a t-attf-href="/shop/category/#{(category.id)}" class="category-item">
+                        <t t-raw="category.name"/>
+                    </a>
+                    <ul t-if="category.child_id">
+                        <t t-call="theme_multishop.custom_template_name" t-with="{'children': category.child_id}"/>
+                    </ul>
+                </li>
+            </ul>
+        </t>
+    </template>
+
+    <!--<style>-->
+    <!--    .category-item:hover {-->
+    <!--        /* Add your desired hover effect styles */-->
+    <!--        background-color: #F0F0F0;-->
+    <!--        color: #000;-->
+    <!--    }-->
+    <!--</style>-->
+
+
+</odoo>

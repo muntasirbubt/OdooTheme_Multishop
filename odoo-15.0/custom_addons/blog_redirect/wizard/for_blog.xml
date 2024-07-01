@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record id="view_hello_blog_form" model="ir.ui.view">
+            <field name="name">hello.blog.wizard.form</field>
+            <field name="model">hello.blog.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+<!--                        <field name="user_name"/>-->
+<!--                        <field name="password"/>-->
+                    </group>
+                    <group>
+                        <button name="action_redirect" string='Blog Page' type='object' data-hotkey="v" class ="btn-primary"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_blog_redirect" model="ir.actions.act_window">
+            <field name="name">Blog Redirect</field>
+            <field name="res_model">hello.blog.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_hello_blog_form"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

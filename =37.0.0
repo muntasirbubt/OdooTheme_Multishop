@@ -1,0 +1,3 @@
+Requirement already satisfied: cryptography in ./venv/lib/python3.8/site-packages (38.0.4)
+Requirement already satisfied: cffi>=1.12 in ./venv/lib/python3.8/site-packages (from cryptography) (1.15.1)
+Requirement already satisfied: pycparser in ./venv/lib/python3.8/site-packages (from cffi>=1.12->cryptography) (2.21)

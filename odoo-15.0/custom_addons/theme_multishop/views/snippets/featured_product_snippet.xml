@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="featured_product_snippet" name="Featured Product">
+        <section id="featured_item">
+            <div id="feature_test">
+                <!--                Featured Product Add here-->
+            </div>
+        </section>
+    </template>
+</odoo>

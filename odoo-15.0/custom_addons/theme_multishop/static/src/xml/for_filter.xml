@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+<!--        <template id="filter_products_brand" inherit_id="website_sale.products" active="False" customize_show="True"-->
+<!--                  name="Filter by Brand">-->
+<!--            <xpath expr="//div[@id='products_grid_before']" position="before">-->
+<!--                <t t-set="enable_left_column" t-value="True"/>-->
+<!--            </xpath>-->
+<!--            <xpath expr="//div[@id='products_grid_before']" position="inside">-->
+<!--                <div t-if="available_min_price != available_max_price" id="o_wsale_price_range_option">-->
+<!--                    <label>Price Filter</label>-->
+<!--                    <input type="range" multiple="multiple" class="custom-range range-with-input"-->
+<!--                           t-att-data-currency="pricelist.currency_id.symbol"-->
+<!--                           t-att-data-currency-position="pricelist.currency_id.position"-->
+<!--                           t-att-step="pricelist.currency_id.rounding" t-att-min="'%f' % (available_min_price)"-->
+<!--                           t-att-max="'%f' % (available_max_price)" t-att-value="'%f,%f' % (min_price, max_price)"/>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; Placeholder for brand filter &ndash;&gt;-->
+<!--                <div id="o_wsale_brand_filter" class="d-flex flex-wrap mt-3">-->
+
+<!--                </div>-->
+<!--            </xpath>-->
+<!--        </template>-->
+<!---->
+<!--        <template id="filter_products_color" inherit_id="website_sale.products" active="False" customize_show="True"-->
+<!--                  name="Filter by Color">-->
+<!--            <xpath expr="//div[@id='products_grid_before']" position="inside">-->
+<!--                &lt;!&ndash; Placeholder for color filter &ndash;&gt;-->
+<!--                <div id="o_wsale_color_filter" class="d-flex flex-wrap mt-3">-->
+
+<!--                </div>-->
+<!--            </xpath>-->
+<!--        </template>-->
+    </data>
+</odoo>
